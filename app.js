@@ -378,7 +378,10 @@ function setupNavigationControls() {
         updateCanvasTransform();
     });
 
-    bind('#btn-overview', showOverview);
+    bind('#btn-overview', () => {
+        if (state.navigation.mode === 'overview') focusSlide(state.navigation.currentIndex);
+        else showOverview();
+    });
     bind('#btn-fit', () => focusSlide(state.navigation.currentIndex));
 
     bind('#btn-fullscreen', () => {
