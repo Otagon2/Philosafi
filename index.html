@@ -96,7 +96,20 @@
 
     <!-- Bottom Toolbar -->
     <div class="bottom-toolbar" role="toolbar" aria-label="View controls">
-        <div class="toolbar-group">
+        <!-- Mobile Nav Controls -->
+        <button id="btn-mobile-left" class="toolbar-btn mobile-only" aria-label="Move Left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+        </button>
+
+        <button id="btn-mobile-up" class="toolbar-btn mobile-only" aria-label="Move Up">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15" />
+            </svg>
+        </button>
+
+        <div class="toolbar-group desktop-only">
             <button id="btn-zoom-out" class="toolbar-btn" aria-label="Zoom out" title="Zoom out">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round">
@@ -117,7 +130,7 @@
             </button>
         </div>
 
-        <div class="toolbar-divider"></div>
+        <div class="toolbar-divider desktop-only"></div>
 
         <div class="toolbar-group">
             <button id="btn-overview" class="toolbar-btn" aria-label="Show all slides" title="Overview (Esc)">
@@ -129,23 +142,16 @@
                     <rect x="3" y="14" width="7" height="7" />
                 </svg>
             </button>
-            <button id="btn-fit" class="toolbar-btn" aria-label="Fit to View">
+            <button id="btn-fit" class="toolbar-btn desktop-only" aria-label="Fit to View">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                 </svg>
             </button>
-            <div class="toolbar-divider"></div>
-
-            <button id="btn-note" class="toolbar-btn" aria-label="Add Note" title="Add Note / Emoji">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                </svg>
-            </button>
-
+            <!-- Note button removed as requested -->
         </div>
 
-        <button id="btn-fullscreen" class="toolbar-btn" aria-label="Toggle fullscreen" title="Fullscreen (F)">
+        <button id="btn-fullscreen" class="toolbar-btn desktop-only" aria-label="Toggle fullscreen"
+            title="Fullscreen (F)">
             <svg class="fs-enter" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round">
                 <path
@@ -155,6 +161,18 @@
                 stroke-width="2" stroke-linecap="round">
                 <path
                     d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
+            </svg>
+        </button>
+
+        <!-- Mobile Nav Controls Right -->
+        <button id="btn-mobile-down" class="toolbar-btn mobile-only" aria-label="Move Down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+            </svg>
+        </button>
+        <button id="btn-mobile-right" class="toolbar-btn mobile-only" aria-label="Move Right">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
             </svg>
         </button>
     </div>

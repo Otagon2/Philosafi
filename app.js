@@ -264,7 +264,8 @@ function focusSlide(index) {
     const vh = window.innerHeight;
 
     // Target Scale - Smart Fit
-    const padding = 40; // px
+    const isMobile = window.innerWidth < 768;
+    const padding = isMobile ? 20 : 40; // Reduced padding for mobile
     const scaleX = (vw - padding) / CONFIG.SLIDE_WIDTH;
     const scaleY = (vh - padding) / CONFIG.SLIDE_HEIGHT;
 
@@ -406,6 +407,16 @@ function setupNavigationControls() {
         else showOverview();
     });
 
+    // Mobile Nav
+    bind('#btn-mobile-left', () => navigateStep('left'));
+    bind('#btn-mobile-right', () => navigateStep('right'));
+    bind('#btn-mobile-up', () => navigateStep('up'));
+    bind('#btn-mobile-down', () => navigateStep('down'));
+    // Prev/Next mappings for logical flow if needed, but spatial is preferred now
+    // bind('#btn-mobile-prev', () => navigateStep('prev'));
+    // bind('#btn-mobile-next', () => navigateStep('next'));
+
+
     // Keyboard
     document.addEventListener('keydown', (e) => {
         if (state.presenter.active && $('#presenter-panel.hidden')) return; // Don't hijack if typing in inputs? No inputs commonly
@@ -443,6 +454,9 @@ function setupCanvasInteractions() {
     container.addEventListener('mousedown', (e) => {
         // Don't drag if clicking a button or slide link
         if (e.target.closest('button') || e.target.closest('a')) return;
+
+        // Disable drag on mobile to ensure single-slide view
+        if (window.innerWidth < 768) return;
 
         state.canvas.isDragging = true;
         state.canvas.startX = e.clientX - state.canvas.x;

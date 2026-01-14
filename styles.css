@@ -909,26 +909,67 @@ a:focus-visible {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .mobile-only {
+        display: flex !important;
+    }
+
     .bottom-toolbar {
-        padding: 0.25rem;
-        bottom: 1rem;
-        width: 90%;
-        font-size: 0.8rem;
+        padding: 0 1rem;
+        height: 64px;
+        /* Fixed height for better alignment */
+        bottom: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        font-size: 1rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        background: rgba(20, 20, 20, 0.95);
+        background: rgba(20, 20, 20, 0.95);
+        display: flex;
+        /* Ensure flex is explicit */
+        justify-content: space-evenly;
+        /* Distribute items evenly */
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .toolbar-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex: 0 0 auto;
+        /* Don't expand, take only needed space */
     }
 
     .toolbar-btn {
-        width: 36px;
-        height: 36px;
+        width: 44px;
+        /* Slightly smaller touch targets to fit better? Or keeping 48 is fine */
+        height: 44px;
+        flex-shrink: 0;
+        /* Prevent squishing */
+    }
+
+    /* Fix dividers or hidden elements taking space */
+    .desktop-only {
+        display: none !important;
     }
 
     .dpad-container {
-        display: none;
+        display: none !important;
     }
 
-    /* Hide D-pad on mobile */
     .presenter-panel {
         width: 90%;
         left: 5%;
         right: auto;
+        top: 80px;
     }
+}
+
+.mobile-only {
+    display: none;
 }
